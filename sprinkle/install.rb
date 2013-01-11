@@ -15,11 +15,9 @@ package :maven do
       "sudo ln -s /usr/local/apache-maven-#{version}/bin/mvn /usr/bin/mvn",
       "echo 'export M2_HOME=/usr/local/apache-maven-#{version};export M2=$M2_HOME/bin' | sudo -E tee -a ~/.bashrc"]
   end
-  
   verify do
     has_executable "mvn"
   end
-  
   requires :java
 end
 
@@ -75,11 +73,11 @@ end
 
 
 policy :java_stack, :roles => :development do
-  requires :java6
-  requires :servlet_container
+  #requires :java6
+  #requires :servlet_container
   requires :scm 
-  requires :maven
-  requires :database                    
+  #requires :maven
+  #requires :database                    
 end
 
 deployment do 
